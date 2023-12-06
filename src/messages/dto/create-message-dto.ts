@@ -1,4 +1,4 @@
 export class CreateMessageDto {
-  readonly name: number;
+  readonly name: string;
   readonly desc: string;
 }
