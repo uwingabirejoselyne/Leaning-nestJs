@@ -11,9 +11,9 @@ import { MessagesService } from './messages.service';
 
 @Controller('messages')
 export class MessagesController {
-  messageService: MessagesService;
-  constructor() {
-    this.messageService = new MessagesService();
+  // messageService: MessagesService;
+  constructor(public messageService: MessagesService) {
+    // this.messageService = new MessagesService();
   }
   @Get()
   getMessages() {
@@ -30,7 +30,7 @@ export class MessagesController {
     // return ` Create messages`;
     const message = await this.messageService.findOne(id);
     if (!message) {
-      return new NotFoundException();
+      return new NotFoundException('It can not be visible');
     }
     return message;
   }
